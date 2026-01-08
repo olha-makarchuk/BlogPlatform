@@ -18,7 +18,6 @@ export const comments = [
     parentId: 1,
   },
 
-  // ===== Post #2 =====
   {
     id: 3,
     postId: 2,
@@ -38,7 +37,6 @@ export const comments = [
     parentId: 3,
   },
 
-  // ===== Post #3 =====
   {
     id: 5,
     postId: 3,
@@ -58,7 +56,6 @@ export const comments = [
     parentId: 5,
   },
 
-  // ===== Post #4 =====
   {
     id: 7,
     postId: 4,
@@ -69,7 +66,6 @@ export const comments = [
     parentId: null,
   },
 
-  // ===== Post #5 =====
   {
     id: 8,
     postId: 5,
@@ -88,4 +84,59 @@ export const comments = [
     createdAt: "2024-03-12T12:10:00Z",
     parentId: 8,
   },
+  {
+    id: 10,
+    postId: 38,
+    authorName: "Анна Коваль",
+    authorAvatar: "https://i.pravatar.cc/50?img=11",
+    content: "Дуже корисна стаття про localStorage, дякую!",
+    createdAt: "2024-02-23T13:30:00Z",
+    parentId: null,
+  },
+  {
+    id: 11,
+    postId: 38,
+    authorName: "Іван Петренко",
+    authorAvatar: "https://i.pravatar.cc/50?img=12",
+    content: "Я додав приклади з сесіями, все працює чудово.",
+    createdAt: "2024-02-23T14:10:00Z",
+    parentId: null,
+  },
+  {
+    id: 12,
+    postId: 39,
+    authorName: "Марія Сидоренко",
+    authorAvatar: "https://i.pravatar.cc/50?img=13",
+    content: "Круті пояснення про кастомні хуки, зрозуміло навіть новачку.",
+    createdAt: "2024-02-25T16:00:00Z",
+    parentId: null,
+  },
+  {
+    id: 13,
+    postId: 40,
+    authorName: "Олег Гончар",
+    authorAvatar: "https://i.pravatar.cc/50?img=14",
+    content: "Дякую за інструкцію по деплою, допомогло на роботі.",
+    createdAt: "2024-02-27T19:30:00Z",
+    parentId: null,
+  },
+  {
+    id: 14,
+    postId: 41,
+    authorName: "Наталія Бондар",
+    authorAvatar: "https://i.pravatar.cc/50?img=15",
+    content: "TypeScript + React тепер для мене не страшно, дякую!",
+    createdAt: "2024-02-29T11:00:00Z",
+    parentId: null,
+  },
+  {
+    id: 15,
+    postId: 41,
+    authorName: "Сергій Ковальчук",
+    authorAvatar: "https://i.pravatar.cc/50?img=16",
+    content: "Додатково можна ще налаштувати ESLint і Prettier для TS.",
+    createdAt: "2024-02-29T12:15:00Z",
+    parentId: 105,
+  },
 ];
+
