@@ -16,7 +16,7 @@ function Breadcrumbs() {
     if (prev === "posts") {
       const post = posts.find((p) => String(p.id) === segment);
       if (post) return post.title;
-      return null; // якщо пост не знайдено
+      return null;
     }
 
     if (prev === "authors") {
@@ -24,13 +24,13 @@ function Breadcrumbs() {
         (a) => String(a.id) === segment || a.slug === segment
       );
       if (author) return author.name;
-      return null; // якщо автор не знайдено
+      return null; 
     }
 
     if (prev === "categories") {
       const category = categories.find((c) => c.slug === segment);
       if (category) return category.name;
-      return null; // якщо категорія не знайдена
+      return null;
     }
 
     const map = {
@@ -48,14 +48,14 @@ function Breadcrumbs() {
 
     if (map[segment]) return map[segment];
 
-    return null; // не показуємо невідомі сегменти
+    return null;
   }
 
   const breadcrumbs = pathnames
     .map((segment, index) => {
-      if (segment === "posts") return null; // ігноруємо /posts
+      if (segment === "posts") return null; 
       const label = getBreadcrumbLabel(segment, index);
-      if (!label) return null; // якщо немає назви — пропускаємо
+      if (!label) return null; 
       const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
       const isLast = index === pathnames.length - 1;
 
