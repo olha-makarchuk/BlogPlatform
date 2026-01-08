@@ -1,0 +1,15 @@
+.dashboard-layout {
+  display: flex;
+  max-width: 1200px;
+  min-height: 100vh;
+  background-color: #f9fafb;
+  margin: 0 auto;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 24px;
+
+  background-color: #f9fafb;
+  overflow-y: auto;
+}
