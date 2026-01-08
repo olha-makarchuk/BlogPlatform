@@ -1,4 +1,4 @@
-import {createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 const AuthContext = createContext(null);
 
@@ -17,17 +17,17 @@ const getInitialAuthState = () => {
 const AuthProvider = ({ children }) => {
   const initialAuth = getInitialAuthState();
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(initialAuth.user);
   const [isAuthenticated, setIsAuthenticated] = useState(
     initialAuth.isAuthenticated
   );
 
-  const login = (email) => {
+  const login = () => {
     const mockUser = {
       id: 1,
-      name: "Марія Коваленко",
-      email,
-      avatar: "https://i.pravatar.cc/150?img=1",
+      name: "Олександр Коваленко",
+      email: "alex@example.com",
+      avatar: "https://i.pravatar.cc/150?img=1"
     };
 
     setUser(mockUser);
@@ -42,6 +42,18 @@ const AuthProvider = ({ children }) => {
     );
   };
 
+  const updateUser = (updatedUser) => {
+    setUser(updatedUser);
+
+    localStorage.setItem(
+      "auth",
+      JSON.stringify({
+        user: updatedUser,
+        isAuthenticated: true,
+      })
+    );
+  };
+
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
@@ -49,10 +61,11 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, login, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export {AuthContext, AuthProvider}
+export { AuthContext, AuthProvider };
