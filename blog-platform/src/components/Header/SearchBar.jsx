@@ -1,7 +1,8 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SearchBar.css";
 import useClickOutside from "../../hooks/useClickOutside";
+import { ROUTES } from "../../utils/constants";
 
 function SearchBar({ onClose }) {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function SearchBar({ onClose }) {
   const handleSearch = (e) => {
     e.preventDefault();
     if (!searchTerm.trim()) return;
-    navigate(`/search?q=${searchTerm}`);
+    navigate(ROUTES.SEARCH(searchTerm));
     setSearchTerm("");
     onClose();
   };

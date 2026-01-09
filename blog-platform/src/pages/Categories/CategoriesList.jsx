@@ -1,6 +1,7 @@
 import { categories } from "../../data/mockCategories";
 import "./CategoriesList.css";
 import { Link } from "react-router-dom";
+import { ROUTES } from "../../utils/constants";
 
 function CategoriesList() {
   return (
@@ -8,7 +9,7 @@ function CategoriesList() {
       {categories.map((category) => (
         <Link
           key={category.id}
-          to={`/categories/${category.slug}`}
+          to={ROUTES.CATEGORIES.DETAIL(category.slug)}
           className="category-link"
         >
           <div className="category-card">

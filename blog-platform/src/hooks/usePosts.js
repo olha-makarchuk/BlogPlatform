@@ -4,7 +4,7 @@ import { posts as mockPosts } from "../data/mockPosts";
 const POSTS_PER_PAGE = 9;
 
 export const usePosts = ({
-  categoryId,
+  categoryIds = [],
   authorId,
   sort = "date",
   page = 1,
@@ -13,8 +13,8 @@ export const usePosts = ({
   const data = useMemo(() => {
     let result = [...mockPosts];
 
-    if (categoryId) {
-      result = result.filter((post) => post.categoryId === Number(categoryId));
+    if (categoryIds.length > 0) {
+      result = result.filter((post) => categoryIds.includes(post.categoryId));
     }
 
     if (authorId) {
@@ -34,15 +34,12 @@ export const usePosts = ({
       case "date":
         result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         break;
-
       case "views":
         result.sort((a, b) => b.views - a.views);
         break;
-
       case "title":
         result.sort((a, b) => a.title.localeCompare(b.title));
         break;
-
       default:
         result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     }
@@ -56,12 +53,8 @@ export const usePosts = ({
       startIndex + POSTS_PER_PAGE
     );
 
-    return {
-      posts: paginatedPosts,
-      total,
-      totalPages,
-    };
-  }, [categoryId, authorId, sort, page, searchQuery]);
+    return { posts: paginatedPosts, total, totalPages };
+  }, [categoryIds, authorId, sort, page, searchQuery]);
 
   return data;
 };

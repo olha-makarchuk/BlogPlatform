@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { posts } from "../../data/mockPosts";
 import PostForm from "../../components/PostCard/PostForm";
+import { ROUTES } from "../../utils/constants";
 
 function PostCreate() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function PostCreate() {
     };
 
     posts.push(newPost);
-    navigate(`/posts/${newPost.id}`);
+    navigate(ROUTES.POSTS.DETAIL(newPost.id));
   };
 
   return <PostForm initialValues={initialValues} onSubmit={handleSubmit} />;

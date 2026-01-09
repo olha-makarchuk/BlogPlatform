@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { authors } from "../../data/mockAuthors";
 import { categories } from "../../data/mockCategories";
 import "./PostCard.css";
+import { ROUTES } from "../../utils/constants";
 
 function PostCard({ post }) {
   const author = authors.find((a) => a.id === post.authorId);
@@ -17,7 +18,7 @@ function PostCard({ post }) {
         <div className="post-row_text">
           {category && (
             <Link
-              to={`/categories/${category.slug}`}
+              to={ROUTES.CATEGORIES(category.slug)}
               className="post-row_category"
               style={{ backgroundColor: category.color }}
             >
@@ -25,7 +26,7 @@ function PostCard({ post }) {
             </Link>
           )}
 
-          <Link to={`/posts/${post.id}`}>
+          <Link to={ROUTES.POSTS.DETAIL(post.id)}>
             <h3 className="post-row_title">{post.title}</h3>
           </Link>
 
@@ -33,7 +34,7 @@ function PostCard({ post }) {
         </div>
 
         <div className="post-row_meta">
-          <Link className="post-row_author" to={`/authors/${post.authorId}`}>
+          <Link className="post-row_author" to={ROUTES.AUTHORS.DETAIL(post.authorId)}>
             👤 {author?.name}
           </Link>
 

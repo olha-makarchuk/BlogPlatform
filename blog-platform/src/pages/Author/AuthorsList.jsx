@@ -3,6 +3,7 @@ import "./AuthorsList.css";
 import { authors } from "../../data/mockAuthors";
 import Pagination from "../../components/Pagination/Pagination";
 import { Link } from "react-router-dom";
+import { ROUTES } from "../../utils/constants";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -60,7 +61,7 @@ function AuthorsList() {
       <ul className="authors__list">
         {paginatedAuthors.map((author) => (
           <li key={author.id} className="authors__item">
-            <Link to={`/authors/${author.id}`} className="authors__link">
+            <Link to={ROUTES.AUTHORS.DETAIL(author.id)} className="authors__link">
               <span>{author.name}</span>
               <span className="author-postsCount">
                 {author.postsCount} статей

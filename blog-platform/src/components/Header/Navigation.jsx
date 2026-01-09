@@ -5,6 +5,7 @@ import "./Navigation.css";
 import logo from "../../assets/logo.png";
 import searchIcon from "../../assets/search.png";
 import useClickOutside from "../../hooks/useClickOutside";
+import { ROUTES } from "../../utils/constants";
 
 function Navigation({ onSearchToggle }) {
   const { user, isAuthenticated } = useAuth();
@@ -16,7 +17,7 @@ function Navigation({ onSearchToggle }) {
   return (
     <nav className="nav">
       <div className="nav__inner">
-        <NavLink to="/" className="nav__logo">
+        <NavLink to={ROUTES.HOME} className="nav__logo">
           <img src={logo} alt="Blog Logo" />
         </NavLink>
 
@@ -40,19 +41,19 @@ function Navigation({ onSearchToggle }) {
           </button>
 
           <div ref={menuRef} className={`nav__menu ${menuOpen ? "open" : ""}`}>
-            <NavLink to="/categories" onClick={() => setMenuOpen(false)}>
+            <NavLink to={ROUTES.CATEGORIES} onClick={() => setMenuOpen(false)}>
               Категорії
             </NavLink>
-            <NavLink to="/authors" onClick={() => setMenuOpen(false)}>
+            <NavLink to={ROUTES.AUTHORS} onClick={() => setMenuOpen(false)}>
               Автори
             </NavLink>
-            <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+            <NavLink to={ROUTES.ABOUT} onClick={() => setMenuOpen(false)}>
               Про нас
             </NavLink>
 
             {isAuthenticated ? (
               <>
-                <NavLink to="/dashboard" onClick={() => setMenuOpen(false)}>
+                <NavLink to={ROUTES.DASHBOARD} onClick={() => setMenuOpen(false)}>
                   <img
                     src={user.avatar}
                     alt={user.name}
@@ -61,7 +62,7 @@ function Navigation({ onSearchToggle }) {
                 </NavLink>
               </>
             ) : (
-              <NavLink to="/login" onClick={() => setMenuOpen(false)}>
+              <NavLink to={ROUTES.LOGIN} onClick={() => setMenuOpen(false)}>
                 Увійти
               </NavLink>
             )}

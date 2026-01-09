@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import "./Login.css";
+import { ROUTES } from "../../utils/constants";
 
 function Login() {
   const { login, isAuthenticated } = useAuth();
@@ -13,14 +14,14 @@ function Login() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/dashboard", { replace: true });
+      navigate(ROUTES.DASHBOARD, { replace: true });
     }
   }, [isAuthenticated, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const from = location.state?.from?.pathname || "/dashboard";
+    const from = location.state?.from?.pathname || ROUTES.DASHBOARD;
 
     login(email, password);
 

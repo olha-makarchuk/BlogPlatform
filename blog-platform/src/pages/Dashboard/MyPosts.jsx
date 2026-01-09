@@ -4,6 +4,7 @@ import { posts as mockPosts } from "../../data/mockPosts";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Pagination from "../../components/Pagination/Pagination";
+import { ROUTES } from "../../utils/constants";
 
 const POSTS_PER_PAGE = 10;
 
@@ -17,7 +18,7 @@ function MyPosts() {
   const navigate = useNavigate();
 
   const handleEdit = (postId) => {
-    navigate(`/posts/${postId}/edit`);
+    navigate(ROUTES.POSTS.EDIT(postId));
   };
 
   const handleDelete = (postId) => {
@@ -56,7 +57,7 @@ function MyPosts() {
               {currentPosts.map((p) => (
                 <tr key={p.id}>
                   <th scope="row">
-                    <Link to={`/posts/${p.id}`}>{p.title}</Link>
+                    <Link to={ROUTES.POSTS.DETAIL(p.id)}>{p.title}</Link>
                   </th>
                   <td>
                     {new Date(p.createdAt).toLocaleDateString("uk-UA", {

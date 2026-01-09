@@ -1,6 +1,7 @@
-import { NavLink, Outlet, useParams, Navigate } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import { authors } from "../../data/mockAuthors";
 import "./AuthorProfile.css";
+import { ROUTES } from "../../utils/constants";
 
 function AuthorProfile() {
   const { id } = useParams();
@@ -42,7 +43,7 @@ function AuthorProfile() {
 
         <nav className="author-nav">
           <NavLink
-            to="posts"
+            to={ROUTES.POSTS}
             className={({ isActive }) =>
               isActive ? "author-link active" : "author-link"
             }
@@ -50,7 +51,7 @@ function AuthorProfile() {
             Статті
           </NavLink>
           <NavLink
-            to="about"
+            to={ROUTES.ABOUT}
             className={({ isActive }) =>
               isActive ? "author-link active" : "author-link"
             }

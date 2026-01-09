@@ -3,6 +3,7 @@ import { posts } from "../../data/mockPosts";
 import { authors } from "../../data/mockAuthors";
 import { categories } from "../../data/mockCategories";
 import "./SearchResults.css";
+import { ROUTES } from "../../utils/constants";
 
 function SearchResults() {
   const [searchParams] = useSearchParams();
@@ -44,7 +45,7 @@ function SearchResults() {
           <ul>
             {foundPosts.map((post) => (
               <li key={post.id}>
-                <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                <Link to={ROUTES.POSTS.DETAIL(post.id)}>{post.title}</Link>
               </li>
             ))}
           </ul>
@@ -57,7 +58,7 @@ function SearchResults() {
           <ul>
             {foundAuthors.map((author) => (
               <li key={author.id}>
-                <Link to={`/authors/${author.id}`}>{author.name}</Link>
+                <Link to={ROUTES.AUTHORS.DETAIL(author.id)}>{author.name}</Link>
               </li>
             ))}
           </ul>
@@ -70,7 +71,7 @@ function SearchResults() {
           <ul>
             {foundCategories.map((category) => (
               <li key={category.id}>
-                <Link to={`/categories/${category.slug}`}>{category.name}</Link>
+                <Link to={ROUTES.CATEGORIES.DETAIL(category.slug)}>{category.name}</Link>
               </li>
             ))}
           </ul>

@@ -22,7 +22,7 @@ function FilterSidebar({
               value={category.id}
               checked={selectedCategories.includes(category.id)}
               onChange={(e) =>
-                onCategoryChange(e.target.value, e.target.checked)
+                onCategoryChange(Number(e.target.value), e.target.checked)
               }
             />
             {category.name}
@@ -36,7 +36,7 @@ function FilterSidebar({
         <select
           value={selectedAuthor || ""}
           onChange={(e) =>
-            onAuthorChange(e.target.value ? e.target.value : null)
+            onAuthorChange(e.target.value ? Number(e.target.value) : null)
           }
         >
           <option value="">Всі автори</option>

@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import "./DashboardSidebar.css";
+import { ROUTES } from "../../utils/constants";
 
 function DashboardSidebar() {
   const { logout } = useAuth();
@@ -18,18 +19,18 @@ function DashboardSidebar() {
       <nav>
         <ul className="menu">
           <li>
-            <NavLink to="/posts/new">Створити статтю</NavLink>
+            <NavLink to={ROUTES.POSTS.NEW}>Створити статтю</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard" end>
+            <NavLink to={ROUTES.DASHBOARD}>
               Головна
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/my-posts">Мої статті</NavLink>
+            <NavLink to={ROUTES.DASHBOARD.MY_POSTS}>Мої статті</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/settings">Налаштування</NavLink>
+            <NavLink to={ROUTES.DASHBOARD.SETTINGS}>Налаштування</NavLink>
           </li>
           <li>
             <button onClick={handleLogout}>Вийти</button>

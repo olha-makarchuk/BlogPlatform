@@ -6,6 +6,7 @@ import "./PostDetail.css";
 import CommentsList from "../../components/Comments/CommentsList";
 import { useAuth } from "../../hooks/useAuth";
 import BackButton from "../../components/common/BackButton";
+import { ROUTES } from "../../utils/constants";
 
 function PostDetail() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ function PostDetail() {
     .filter(
       (p) =>
         p.categoryId === post.categoryId ||
-        (post.tags && p.tags && p.tags.some((tag) => post.tags.includes(tag))) 
+        (post.tags && p.tags && p.tags.some((tag) => post.tags.includes(tag)))
     )
     .slice(0, 4);
 
@@ -37,7 +38,7 @@ function PostDetail() {
         {isAuthor && (
           <button
             className="post-edit-btn"
-            onClick={() => navigate(`/posts/${post.id}/edit`)}
+            onClick={() => navigate(ROUTES.POSTS.EDIT(post.id))}
           >
             Редагувати
           </button>
@@ -45,7 +46,7 @@ function PostDetail() {
       </div>
 
       <div className="post-category">
-        <Link to={`/categories/${category.slug}`}>
+        <Link to={ROUTES.CATEGORIES.DETAIL(category.slug)}>
           <span style={{ backgroundColor: category?.color }}>
             {category?.icon} {category?.name}
           </span>
@@ -55,7 +56,7 @@ function PostDetail() {
       <h1 className="post-title">{post.title}</h1>
 
       <div className="post-meta">
-        <Link to={`/authors/${author.id}`} className="post-author">
+        <Link to={ROUTES.AUTHORS.DETAIL(author.id)} className="post-author">
           {author.name}
         </Link>
         <span>•</span>
@@ -94,9 +95,15 @@ function PostDetail() {
           <h2>Рекомендовані статті</h2>
           <div className="recommended-grid">
             {recommendedPosts.map((rec) => {
-              const recCategory = categories.find((c) => c.id === rec.categoryId);
+              const recCategory = categories.find(
+                (c) => c.id === rec.categoryId
+              );
               return (
-                <Link key={rec.id} to={`/posts/${rec.id}`} className="recommended-card">
+                <Link
+                  key={rec.id}
+                  to={ROUTES.POSTS.DETAIL(rec.id)}
+                  className="recommended-card"
+                >
                   {rec.imageUrl && <img src={rec.imageUrl} alt={rec.title} />}
                   <div className="recommended-info">
                     <span

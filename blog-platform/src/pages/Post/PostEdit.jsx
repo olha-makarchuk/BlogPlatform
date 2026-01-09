@@ -2,6 +2,7 @@ import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { posts } from "../../data/mockPosts";
 import { useAuth } from "../../hooks/useAuth";
 import PostForm from "../../components/PostCard/PostForm";
+import { ROUTES } from "../../utils/constants";
 
 function PostEdit() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ function PostEdit() {
 
   if (!post) return <p>Статтю не знайдено</p>;
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to={ROUTES.LOGIN} replace />;
 
   if (post.authorId !== user.id) return <Navigate to="/403" replace />;
 
@@ -25,16 +26,10 @@ function PostEdit() {
       updatedAt: new Date().toISOString(),
     };
 
-    navigate(`/posts/${post.id}`);
+    navigate(ROUTES.POSTS.DETAIL(post.id));
   };
 
-  return (
-    <PostForm
-      initialValues={post}
-      onSubmit={handleSubmit}
-      mode="edit"
-    />
-  );
+  return <PostForm initialValues={post} onSubmit={handleSubmit} mode="edit" />;
 }
 
 export default PostEdit;

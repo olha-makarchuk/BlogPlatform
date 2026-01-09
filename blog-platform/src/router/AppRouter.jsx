@@ -21,6 +21,7 @@ import Settings from "../pages/Dashboard/Settings";
 import NotFound from "../pages/NotFound/NotFound";
 import AuthorsList from "../pages/Author/AuthorsList";
 import LoadingSpinner from "../components/common/LoadingSpinner";
+import { ROUTES } from "../utils/constants";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 
@@ -29,30 +30,32 @@ function AppRouter() {
     <BrowserRouter>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
-          <Route path="/" element={<MainLayout />}>
+          <Route path={ROUTES.HOME} element={<MainLayout />}>
             <Route index element={<Home />} />
 
-            <Route path="posts/:id" element={<PostDetail />} />
-            <Route path="login" element={<Login />} />
-            <Route path="search" element={<SearchResults />} />
-            <Route path="about" element={<About />} />
+            <Route path={`${ROUTES.POSTS.ROOT}/:id`} element={<PostDetail />} />
+            <Route path={ROUTES.LOGIN} element={<Login />} />
+            <Route path={ROUTES.SEARCH} element={<SearchResults />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
 
-            <Route path="authors" element={<AuthorsList />} />
-            <Route path="authors/:id" element={<AuthorProfile />}>
+            <Route path={ROUTES.AUTHORS.ROOT} element={<AuthorsList />} />
+            <Route
+              path={`${ROUTES.AUTHORS.ROOT}/:id`}
+              element={<AuthorProfile />}
+            >
               <Route index element={<AuthorPosts />} />
               <Route path="posts" element={<AuthorPosts />} />
               <Route path="about" element={<AuthorAbout />} />
             </Route>
 
-            <Route path="categories">
-              <Route index element={<CategoriesList />} />
-              <Route path=":slug" element={<CategoryDetail />} />
-            </Route>
-
-            <Route path="authors/:authorId" element={<AuthorProfile />} />
+            <Route path={ROUTES.CATEGORIES.ROOT} element={<CategoriesList />} />
+            <Route
+              path={`${ROUTES.CATEGORIES.ROOT}/:slug`}
+              element={<CategoryDetail />}
+            />
 
             <Route
-              path="posts/new"
+              path={ROUTES.POSTS.NEW}
               element={
                 <ProtectedRoute>
                   <PostCreate />
@@ -61,7 +64,7 @@ function AppRouter() {
             />
 
             <Route
-              path="posts/:id/edit"
+              path={`${ROUTES.POSTS.ROOT}/:id/edit`}
               element={
                 <ProtectedRoute>
                   <PostEdit />
@@ -70,7 +73,7 @@ function AppRouter() {
             />
 
             <Route
-              path="dashboard"
+              path={ROUTES.DASHBOARD.ROOT}
               element={
                 <ProtectedRoute>
                   <DashboardLayout />
@@ -82,7 +85,7 @@ function AppRouter() {
               <Route path="settings" element={<Settings />} />
             </Route>
 
-            <Route path="*" element={<NotFound />} />
+            <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
           </Route>
         </Routes>
       </Suspense>
