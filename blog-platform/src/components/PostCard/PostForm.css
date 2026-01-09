@@ -1,0 +1,159 @@
+.form-block{
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 25px 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+} 
+
+.form-block h2{
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+
+.form-block input,
+.form-block textarea,
+.form-block select{
+  width: 100%;
+  padding: 12px 0px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111;
+  font-size: 15px;
+
+  transition: all .25s ease;
+}
+
+.form-block textarea{
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-block input:hover,
+.form-block textarea:hover,
+.form-block select:hover{
+  border-color: #9ca3af;
+}
+
+.form-block input:focus,
+.form-block textarea:focus,
+.form-block select:focus{
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37,99,235,.15);
+}
+
+.error{
+  margin-top: -6px;
+  margin-bottom: 8px;
+  color: #dc2626;
+  font-size: 13px;
+}
+
+.tags-wrapper{
+  margin-top: 10px;
+  padding: 14px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.tags-wrapper label{
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.tag-row{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.tag-row input{
+  flex: 1;
+}
+
+.tag-row button{
+  padding: 0 10px;
+  border-radius: 10px;
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.tag-row button:hover{
+  background: #fca5a5;
+}
+
+.tags-wrapper button[type="button"]{
+  margin-top: 5px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.tags-wrapper button[type="button"]:hover{
+  background: #7dd3fc;
+}
+
+.actions{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.actions button{
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.actions button[type="submit"]{
+  background: #2563eb;
+  color: white;
+}
+
+.actions button[type="submit"]:hover{
+  background: #1d4ed8;
+}
+
+.actions button[type="button"]{
+  background: #e5e7eb;
+  color: #111;
+}
+
+.actions button[type="button"]:hover{
+  background: #d1d5db;
+}
+
+@media(max-width: 600px){
+  .form-block{
+    padding: 20px;
+  }
+
+  .actions{
+    flex-direction: column;
+  }
+}
