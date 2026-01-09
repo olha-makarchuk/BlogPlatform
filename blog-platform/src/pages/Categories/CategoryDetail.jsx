@@ -24,7 +24,7 @@ function CategoryDetail() {
   }, [slug, searchQuery, sortBy, setSearchParams]);
 
   const { posts, totalPages } = usePosts({
-    categoryId: category?.id,
+    categoryIds: category?.id ? [category.id] : [],
     page,
     searchQuery,
     sort: sortBy,

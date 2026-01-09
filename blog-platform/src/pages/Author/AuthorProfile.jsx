@@ -43,15 +43,16 @@ function AuthorProfile() {
 
         <nav className="author-nav">
           <NavLink
-            to={ROUTES.POSTS}
+            to={ROUTES.AUTHORS.POSTS(author.id)}
             className={({ isActive }) =>
               isActive ? "author-link active" : "author-link"
             }
           >
             Статті
           </NavLink>
+
           <NavLink
-            to={ROUTES.ABOUT}
+            to={ROUTES.AUTHORS.ABOUT(author.id)}
             className={({ isActive }) =>
               isActive ? "author-link active" : "author-link"
             }

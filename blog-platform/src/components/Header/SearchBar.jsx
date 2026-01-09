@@ -14,7 +14,7 @@ function SearchBar({ onClose }) {
   const handleSearch = (e) => {
     e.preventDefault();
     if (!searchTerm.trim()) return;
-    navigate(ROUTES.SEARCH(searchTerm));
+    navigate(`${ROUTES.SEARCH}?q=${searchTerm}`);
     setSearchTerm("");
     onClose();
   };

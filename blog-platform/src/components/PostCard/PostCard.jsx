@@ -18,7 +18,7 @@ function PostCard({ post }) {
         <div className="post-row_text">
           {category && (
             <Link
-              to={ROUTES.CATEGORIES(category.slug)}
+              to={ROUTES.CATEGORIES.DETAIL(category.slug)}
               className="post-row_category"
               style={{ backgroundColor: category.color }}
             >

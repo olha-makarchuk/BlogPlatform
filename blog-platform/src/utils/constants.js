@@ -2,8 +2,8 @@ export const ROUTES = {
   HOME: "/",
   LOGIN: "/login",
   ABOUT: "/about",
-  SEARCH: (query) => `/search?q=${encodeURIComponent(query)}`,
-
+  SEARCH: "/search",
+  
   POSTS: {
     ROOT: "/posts",
     NEW: "/posts/new",

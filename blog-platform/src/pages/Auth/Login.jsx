@@ -14,14 +14,14 @@ function Login() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(ROUTES.DASHBOARD, { replace: true });
+      navigate(ROUTES.DASHBOARD.ROOT, { replace: true });
     }
   }, [isAuthenticated, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const from = location.state?.from?.pathname || ROUTES.DASHBOARD;
+    const from = location.state?.from?.pathname || ROUTES.DASHBOARD.ROOT;
 
     login(email, password);
 

@@ -41,10 +41,10 @@ function Navigation({ onSearchToggle }) {
           </button>
 
           <div ref={menuRef} className={`nav__menu ${menuOpen ? "open" : ""}`}>
-            <NavLink to={ROUTES.CATEGORIES} onClick={() => setMenuOpen(false)}>
+            <NavLink to={ROUTES.CATEGORIES.ROOT} onClick={() => setMenuOpen(false)}>
               Категорії
             </NavLink>
-            <NavLink to={ROUTES.AUTHORS} onClick={() => setMenuOpen(false)}>
+            <NavLink to={ROUTES.AUTHORS.ROOT} onClick={() => setMenuOpen(false)}>
               Автори
             </NavLink>
             <NavLink to={ROUTES.ABOUT} onClick={() => setMenuOpen(false)}>
@@ -53,7 +53,7 @@ function Navigation({ onSearchToggle }) {
 
             {isAuthenticated ? (
               <>
-                <NavLink to={ROUTES.DASHBOARD} onClick={() => setMenuOpen(false)}>
+                <NavLink to={ROUTES.DASHBOARD.ROOT} onClick={() => setMenuOpen(false)}>
                   <img
                     src={user.avatar}
                     alt={user.name}
