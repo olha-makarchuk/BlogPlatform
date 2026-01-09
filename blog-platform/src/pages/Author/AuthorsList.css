@@ -1,0 +1,68 @@
+.authors {
+  max-width: 600px;
+  margin: 0 auto;
+  color: black;
+}
+
+.authors h2 {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.authors__sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.authors__sort label {
+  font-size: 14px;
+}
+
+.authors__sort select {
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.authors__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.authors__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.authors__item:last-child {
+  border-bottom: none;
+}
+
+.authors__item span:last-child {
+  font-size: 14px;
+  color: #666;
+}
+
+.authors__sort select {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.author-postsCount {
+  margin-left: auto;
+  font-size: 14px;
+  color: #666;
+}
+
+.authors__link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+

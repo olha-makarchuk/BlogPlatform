@@ -1,0 +1,21 @@
+.author-social {
+  margin-top: 16px;
+}
+
+.author-social h4 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  color: #111827;
+}
+
+.author-social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.author-social li {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #4b5563;
+}
