@@ -19,7 +19,7 @@ function DashboardSidebar() {
       <nav>
         <ul className="menu">
           <li>
-            <NavLink to={ROUTES.DASHBOARD.ROOT}>Головна</NavLink>
+            <NavLink to={ROUTES.DASHBOARD.ROOT} end>Головна</NavLink>
           </li>
           <li>
             <NavLink to={ROUTES.POSTS.NEW}>Створити статтю</NavLink>
